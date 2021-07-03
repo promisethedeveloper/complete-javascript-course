@@ -71,6 +71,45 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
+/////////////////////////////////////////////////
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-/////////////////////////////////////////////////
+console.log(`------for of method-----`);
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You made a deposit of ${movement}`);
+  } else {
+    console.log(`You made a withdrawal of ${Math.abs(movement)}`);
+  }
+}
+
+console.log('------forEach method');
+movements.forEach(function (movement) {
+  if (movements > 0) {
+    console.log(`You made a deposit of ${movement}`);
+  } else {
+    console.log(`You made a withdrawal of ${Math.abs(movement)}`);
+  }
+});
+
+console.log(`------for of method-----`);
+const names = ['Jo', 'Ab', 'Ay', 'Obi'];
+for (const name of names) {
+  console.log(`${name} is a great person`);
+}
+
+console.log('------forEach method');
+names.forEach(function (name) {
+  console.log(`${name} is a great person`);
+});
+
+console.log(`------for of method-----`);
+for (const [i, language] of programmingLanguages.entries()) {
+  console.log(`Language at position ${i + 1} is ${language}`);
+}
+
+console.log('------forEach method');
+const programmingLanguages = ['Java', 'JavaScript', 'Python', 'C'];
+programmingLanguages.forEach(function (language, index, array) {
+  console.log(`Language at position ${index + 1} is ${language}.`);
+});
