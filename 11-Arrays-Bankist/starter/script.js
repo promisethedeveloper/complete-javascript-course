@@ -61,6 +61,26 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+function displayMovements(movement) {
+  containerMovements.innerHTML = '';
+
+  movement.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+      <div class="movements__row">
+          <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+          <div class="movements__value">${mov}</div>
+      </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+}
+displayMovements(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -72,44 +92,45 @@ const currencies = new Map([
 ]);
 
 /////////////////////////////////////////////////
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-console.log(`------for of method-----`);
-for (const movement of movements) {
-  if (movement > 0) {
-    console.log(`You made a deposit of ${movement}`);
-  } else {
-    console.log(`You made a withdrawal of ${Math.abs(movement)}`);
-  }
-}
+// console.log(`------for of method-----`);
+// for (const movement of movements) {
+//   if (movement > 0) {
+//     console.log(`You made a deposit of ${movement}`);
+//   } else {
+//     console.log(`You made a withdrawal of ${Math.abs(movement)}`);
+//   }
+// }
 
-console.log('------forEach method');
-movements.forEach(function (movement) {
-  if (movements > 0) {
-    console.log(`You made a deposit of ${movement}`);
-  } else {
-    console.log(`You made a withdrawal of ${Math.abs(movement)}`);
-  }
-});
+// console.log('------forEach method');
+// movements.forEach(function (movement) {
+//   if (movements > 0) {
+//     console.log(`You made a deposit of ${movement}`);
+//   } else {
+//     console.log(`You made a withdrawal of ${Math.abs(movement)}`);
+//   }
+// });
 
-console.log(`------for of method-----`);
-const names = ['Jo', 'Ab', 'Ay', 'Obi'];
-for (const name of names) {
-  console.log(`${name} is a great person`);
-}
+// console.log(`------for of method-----`);
+// const names = ['Jo', 'Ab', 'Ay', 'Obi'];
+// for (const name of names) {
+//   console.log(`${name} is a great person`);
+// }
 
-console.log('------forEach method');
-names.forEach(function (name) {
-  console.log(`${name} is a great person`);
-});
+// console.log('------forEach method');
+// names.forEach(function (name) {
+//   console.log(`${name} is a great person`);
+// });
 
-console.log(`------for of method-----`);
-for (const [i, language] of programmingLanguages.entries()) {
-  console.log(`Language at position ${i + 1} is ${language}`);
-}
+// const programmingLanguages = ['Java', 'JavaScript', 'Python', 'C'];
 
-console.log('------forEach method');
-const programmingLanguages = ['Java', 'JavaScript', 'Python', 'C'];
-programmingLanguages.forEach(function (language, index, array) {
-  console.log(`Language at position ${index + 1} is ${language}.`);
-});
+// console.log(`------for of method-----`);
+// for (const [i, language] of programmingLanguages.entries()) {
+//   console.log(`Language at position ${i + 1} is ${language}`);
+// }
+
+// console.log('------forEach method');
+// programmingLanguages.forEach(function (language, index, array) {
+//   console.log(`Language at position ${index + 1} is ${language}.`);
+// });
