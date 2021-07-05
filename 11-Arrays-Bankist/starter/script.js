@@ -81,6 +81,29 @@ function displayMovements(movement) {
 }
 displayMovements(account1.movements);
 
+function createUserNames(accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+}
+createUserNames(accounts);
+console.log(accounts);
+
+const myself = 'Promise Morka';
+const outputOfSelf = myself
+  .toLowerCase()
+  .split(' ')
+  .map(function (name) {
+    return name[0];
+  })
+  .join('');
+
+console.log(outputOfSelf);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -92,7 +115,7 @@ const currencies = new Map([
 ]);
 
 /////////////////////////////////////////////////
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(`------for of method-----`);
 // for (const movement of movements) {
@@ -104,13 +127,13 @@ const currencies = new Map([
 // }
 
 // console.log('------forEach method');
-// movements.forEach(function (movement) {
-//   if (movements > 0) {
-//     console.log(`You made a deposit of ${movement}`);
-//   } else {
-//     console.log(`You made a withdrawal of ${Math.abs(movement)}`);
-//   }
-// });
+movements.forEach(function (mov) {
+  if (mov > 0) {
+    console.log(`You made a deposit of ${mov}`);
+  } else {
+    console.log(`You made a withdrawal of ${Math.abs(mov)}`);
+  }
+});
 
 // console.log(`------for of method-----`);
 // const names = ['Jo', 'Ab', 'Ay', 'Obi'];
@@ -130,7 +153,29 @@ const currencies = new Map([
 //   console.log(`Language at position ${i + 1} is ${language}`);
 // }
 
-// console.log('------forEach method');
+// console.log('------forEach method---------');
 // programmingLanguages.forEach(function (language, index, array) {
 //   console.log(`Language at position ${index + 1} is ${language}.`);
 // });
+
+// console.log('------MAP method-------');
+// movements.forEach(function (movement) {
+//   if (movements > 0) {
+//     console.log(`You made a deposit of ${movement}`);
+//   } else {
+//     console.log(`You made a withdrawal of ${Math.abs(movement)}`);
+//   }
+// });
+
+const result = movements.map(
+  (mov, index) =>
+    // movements > 0
+    //   ? console.log(`You made a deposit of ${movement}`)
+    //   : console.log(`You made a withdrawal of ${Math.abs(movement)}`);
+
+    `Movement ${index + 1}: You ${
+      mov > 0 ? 'deposited' : 'withdrew'
+    } ${Math.abs(mov)}`
+);
+
+console.log(result);
